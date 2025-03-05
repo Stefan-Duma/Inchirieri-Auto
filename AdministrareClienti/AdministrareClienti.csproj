@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7E2884D-B28C-4646-A0C7-5698CBC5630D}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>InchirieriAuto</RootNamespace>
-    <AssemblyName>InchirieriAuto</AssemblyName>
+    <ProjectGuid>{93F8DF68-82F4-48CE-AD43-8D3407DAEA1D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AdministrareClienti</RootNamespace>
+    <AssemblyName>AdministrareClienti</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,24 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Component1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Component1.Designer.cs">
-      <DependentUpon>Component1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Admin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="AdministrareClienti\AdministrareClienti.csproj">
-      <Project>{93f8df68-82f4-48ce-ad43-8d3407daea1d}</Project>
-      <Name>AdministrareClienti</Name>
-    </ProjectReference>
-    <ProjectReference Include="ClaseBaza\ClaseBaza.csproj">
+    <ProjectReference Include="..\ClaseBaza\ClaseBaza.csproj">
       <Project>{4f69652f-3376-4031-9b76-97067b1583c7}</Project>
       <Name>ClaseBaza</Name>
     </ProjectReference>

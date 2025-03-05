@@ -13,15 +13,28 @@ namespace InchirieriAuto
         static void Main(string[] args)
         {
             Masina Audi = new Masina("Audi A3", 2012, 120, 3);
-            Client Alex = new Client("Alex", "alex01@gmail.com", "0742384552", 3, Audi);
-            Console.Out.WriteLine(Alex.Detalii_client());
+            Masina Dacia = new Masina("Dacia Duster", 2016, 150, 1);
+            Client Ion = new Client("Georgescu", "Ion", "Ion01@gmail.com", "0742384552", 3, Audi);
+            Client Florin = new Client("Amariei", "Florin", "Florin@gmail.com", "0745263788", 7, Audi);
+            Admin Adm = new Admin();
+            
+            /*
+            Client[] temp = new Client[2];
+            temp[0] = Ion;
+            temp[1] = Florin;
+            adm.AddClient(temp);
+            */
 
-            Console.Out.WriteLine();
+            Ion.Perioada = 10;
+            Ion.Vehicul_inchiriat = Dacia;
 
-            Masina Dacia = new Masina("Duster", 2016, 150, 1);
-            Alex.Perioada = 7;
-            Alex.Vehicul_inchiriat = Dacia;
-            Console.Out.WriteLine(Alex.Detalii_client());
+            Adm.AddClient(Ion);
+            Adm.AddClient(Florin);
+
+            Console.WriteLine(Adm.InfoClienti());
+
+            Console.WriteLine("Clientul cu numele Georgescu Ion:");
+            Console.WriteLine((Adm.CautareClient("Georgescu", "Ion")).Detalii_client());
         }
     }
 }
