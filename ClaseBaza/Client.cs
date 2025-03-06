@@ -11,31 +11,33 @@ namespace ClaseBaza
         public string Nume { get; set; }
         public string Prenume { get; set; }
         public string Email { get; set; }
-        public string Nr_telefon { get; set; }
+        public string Nr_Telefon { get; set; }
         public int Perioada { get; set; } // Perioada de timp pentru care clientul va inchiria masina.
-        public Masina Vehicul_inchiriat { get; set; }
+        public Masina Vehicul_Inchiriat { get; set; }
 
-        public Client(string nume = "", string prenume = "", string email = "", string nr_telefon = "", int perioada = 0, Masina vehicul_inchiriat = null)
+        public Client(string Nume = "", string Prenume = "", string Email = "", string Nr_Telefon = "", int Perioada = 0, Masina Vehicul_Inchiriat = null)
         {
-            this.Nume = nume;
-            this.Prenume = prenume;
-            this.Email = email;
-            this.Nr_telefon = nr_telefon;
-            this.Perioada = perioada;
-            this.Vehicul_inchiriat = vehicul_inchiriat;
-            if (this.Vehicul_inchiriat != null) this.Vehicul_inchiriat.Stoc--;
+            this.Nume = Nume;
+            this.Prenume = Prenume;
+            this.Email = Email;
+            this.Nr_Telefon = Nr_Telefon;
+            this.Perioada = Perioada;
+            this.Vehicul_Inchiriat = Vehicul_Inchiriat;
+            if (this.Vehicul_Inchiriat != null) this.Vehicul_Inchiriat.Stoc--;
         }
-        public int Pret_final()
+        public int PretFinal()
         {
-            if (Perioada > 0 && Vehicul_inchiriat.Taxa > 0) return Perioada * Vehicul_inchiriat.Taxa;
+            if (Perioada > 0 && Vehicul_Inchiriat.Taxa > 0) return Perioada * Vehicul_Inchiriat.Taxa;
             return -1; // In cazul valorilor invalide, va returna -1.
         }
-        public string Detalii_client()
+        public string DetaliiClient()
         {
-            return $"Nume: {Nume}\nPrenume: {Prenume}\nEmail: {Email}\nTelefon: {Nr_telefon}\n" +
-                   $"Perioada chirie: {Perioada} zile\nModel inchiriat: {Vehicul_inchiriat.Model}\n" +
-                   $"Total de achitat: {Pret_final()} RON";
-            ;
+            return $"\nNUME: {Nume}\n" +
+                    $"Prenume: {Prenume}\n" +
+                    $"Email: {Email}\n" +
+                    $"Nr_Telefon: {Nr_Telefon}\n" +
+                    $"Perioada chirie: {Perioada} zile\n" +
+                    $"Vehicul inchiriat: {Vehicul_Inchiriat.Model}\n\n";
         }
     }
 }
