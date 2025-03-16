@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AdministrareClienti;
 using ClaseBaza;
+using Administrator;
 
 namespace InchirieriAuto
 {
@@ -16,7 +17,14 @@ namespace InchirieriAuto
             int Index;
             Client Client_Nou = null, Client_Gasit = null;
             Masina Masina_Noua = null;
-            Admin Adm = new Admin();
+
+            string FisierClienti = ConfigurationManager.AppSettings["FisierClienti"];
+            string FisiserMasini = ConfigurationManager.AppSettings["FisierMasini"];
+            string LastId = ConfigurationManager.AppSettings["LastId"];
+
+            AdministratorClienti_FisierText AdminClienti = new AdministratorClienti_FisierText(FisierClienti);            
+            AdministratorMasini_FisierText AdminMasini = new AdministratorMasini_FisierText(FisiserMasini);
+            
             do {
                 
                 AfiseazaMeniu();
@@ -28,33 +36,36 @@ namespace InchirieriAuto
                         Masina_Noua = CitireMasinaConsola();
                         break;
                     case "D":
-                        Adm.AddMasina(Masina_Noua);
+                        AdminMasini.AddMasinaFisier(Masina_Noua);
                         break;
                     case "C":
                         Console.WriteLine("Alegeti masina dupa Id:");
+                        AdminMasini.GetMasiniFisier();
                         Index = int.Parse(Console.ReadLine());
-                        if(Index < 0 || Index > Adm.GetNrMasini())
+                        if(Index < 0 || Index > AdminMasini.GetNrMasini())
                         {
                             Console.WriteLine("Id Invalid! Clientul nu va fi citit");
                             break;
                         }
-                        Client_Nou = CitireClientConsola(Adm.GetMasina(Index));
+                        Client_Nou = CitireClientConsola(AdminMasini.GetMasina(Index));
                         break;
                     case "S":
-                        Adm.AddClient(Client_Nou);
+                        AdminClienti.AddClientFisier(Client_Nou);
                         break;
                     case "I":
-                        Console.WriteLine(Adm.InfoClienti());
+                        AdminClienti.GetClientiFisier();
+                        Console.WriteLine(AdminClienti.InfoClienti());
                         break;
                     case "K":
-                        Console.WriteLine(Adm.InfoMasini());
+                        AdminMasini.GetMasiniFisier();
+                        Console.WriteLine(AdminMasini.InfoMasini());
                         break;
                     case "R1":
                         Console.WriteLine("Introduceti numele:");
                         Nume = Console.ReadLine();
                         Console.WriteLine("Introduceti prenumele:");
                         Prenume = Console.ReadLine();
-                        if( (Client_Gasit = Adm.CautareClient(Nume, Prenume)) == null)
+                        if( (Client_Gasit = AdminClienti.CautareClient(Nume, Prenume)) == null)
                         {
                             Console.WriteLine("Clientul nu a fost gasit");
                         }
@@ -66,7 +77,7 @@ namespace InchirieriAuto
                     case "R2":
                         Console.WriteLine("Introduceti email-ul sau numar de telefon:");
                         Info = Console.ReadLine();
-                        if ((Client_Gasit = Adm.CautareClient(Info)) == null)
+                        if ((Client_Gasit = AdminClienti.CautareClient(Info)) == null)
                         {
                             Console.WriteLine("Clientul nu a fost gasit");
                         }
@@ -76,6 +87,7 @@ namespace InchirieriAuto
                         }
                         break;
                     case "X":
+                        AdminMasini.WriteLastId(); //Va memora ultimul Id inregistrat, pentru a evita repetarea Id-urilor. 
                         return;
                     default:
                         Console.WriteLine("Optiunea nu exista");
@@ -86,9 +98,9 @@ namespace InchirieriAuto
         public static void AfiseazaMeniu()
         {
             Console.WriteLine("M: Adauga masina.");
-            Console.WriteLine("D: Salveaza masina in vector de obiecte");
+            Console.WriteLine("D: Salveaza masina in fisier.");
             Console.WriteLine("C: Adauga client.");
-            Console.WriteLine("S: Salveaza client in vector de obiecte.");
+            Console.WriteLine("S: Salveaza client in fisier.");
             Console.WriteLine("I: Afiseaza clientii.");
             Console.WriteLine("K: Afiseasa catalog masini.");
             Console.WriteLine("R1: Cauta client dupa numele complet.");

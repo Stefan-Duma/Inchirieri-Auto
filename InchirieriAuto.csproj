@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,9 +57,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AdministrareClienti\AdministrareClienti.csproj">
-      <Project>{93f8df68-82f4-48ce-ad43-8d3407daea1d}</Project>
-      <Name>AdministrareClienti</Name>
+    <ProjectReference Include="Administrator\Administrator.csproj">
+      <Project>{75b483b1-f724-42e0-a4f8-0021c298e693}</Project>
+      <Name>Administrator</Name>
     </ProjectReference>
     <ProjectReference Include="ClaseBaza\ClaseBaza.csproj">
       <Project>{4f69652f-3376-4031-9b76-97067b1583c7}</Project>

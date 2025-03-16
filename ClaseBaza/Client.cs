@@ -8,12 +8,21 @@ namespace ClaseBaza
 {
     public class Client
     {
+        private const char SEPARATOR_PRINCIPAL_FISIER = ';';
+
+        private const int NUME = 0;
+        private const int PRENUME = 1;
+        private const int EMAIL = 2;
+        private const int NR_TELEFON = 3;
+        private const int PERIOADA = 4;
+        private const int ID_VEHICUL = 5;
+
         public string Nume { get; set; }
         public string Prenume { get; set; }
         public string Email { get; set; }
         public string Nr_Telefon { get; set; }
         public int Perioada { get; set; } // Perioada de timp pentru care clientul va inchiria masina.
-        public Masina Vehicul_Inchiriat { get; set; }
+        public int Id_Vehicul { get; set; }
 
         public Client(string Nume = "", string Prenume = "", string Email = "", string Nr_Telefon = "", int Perioada = 0, Masina Vehicul_Inchiriat = null)
         {
@@ -22,14 +31,20 @@ namespace ClaseBaza
             this.Email = Email;
             this.Nr_Telefon = Nr_Telefon;
             this.Perioada = Perioada;
-            this.Vehicul_Inchiriat = Vehicul_Inchiriat;
-            if (this.Vehicul_Inchiriat != null) this.Vehicul_Inchiriat.Stoc--;
+            this.Id_Vehicul = Vehicul_Inchiriat.Id;
+            Vehicul_Inchiriat.Stoc--;
         }
-        public int PretFinal()
+        public Client(string LinieFisier)
         {
-            if (Perioada > 0 && Vehicul_Inchiriat.Taxa > 0) return Perioada * Vehicul_Inchiriat.Taxa;
-            return -1; // In cazul valorilor invalide, va returna -1.
+            string[] DateFisier = LinieFisier.Split(SEPARATOR_PRINCIPAL_FISIER);
+            Nume = DateFisier[NUME];
+            Prenume = DateFisier[PRENUME];
+            Email = DateFisier[EMAIL];
+            Nr_Telefon = DateFisier[NR_TELEFON];
+            Perioada = Int32.Parse(DateFisier[PERIOADA]);
+            Id_Vehicul = Int32.Parse(DateFisier[ID_VEHICUL]);
         }
+
         public string DetaliiClient()
         {
             return $"\nNUME: {Nume}\n" +
@@ -37,7 +52,19 @@ namespace ClaseBaza
                     $"Email: {Email}\n" +
                     $"Nr_Telefon: {Nr_Telefon}\n" +
                     $"Perioada chirie: {Perioada} zile\n" +
-                    $"Vehicul inchiriat: {Vehicul_Inchiriat.Model}\n\n";
+                    $"Id vehicul inchiriat: {Id_Vehicul}\n\n";
+        }
+        public string DetaliiClientFisier()
+        {
+            return string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}",
+                SEPARATOR_PRINCIPAL_FISIER,
+                (Nume ?? "NULL"),
+                (Prenume ?? "NULL"),
+                Email ?? "NULL",
+                Nr_Telefon ?? "NULL",
+                Perioada.ToString() ?? "NULL",
+                Id_Vehicul.ToString() ?? "NULL"
+                );
         }
     }
 }
