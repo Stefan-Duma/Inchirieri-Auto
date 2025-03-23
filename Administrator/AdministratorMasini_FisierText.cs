@@ -12,22 +12,16 @@ namespace Administrator
     public class AdministratorMasini_FisierText : AdministratorMasini_Memorie
     {
         private string NumeFisier;
-        private string FisierId;
         public AdministratorMasini_FisierText(string numeFisier) : base()
         {
             NumeFisier = numeFisier;
-            FisierId = ConfigurationManager.AppSettings["LastId"];
-            
             Stream streamFisierText = File.Open(numeFisier, FileMode.OpenOrCreate);
-            Stream streamLastId = File.Open(FisierId, FileMode.OpenOrCreate);
-            
             streamFisierText.Close();
-            streamLastId.Close();
-
-            ReadLastId();
+            GetLastId();
         }
         public void AddMasinaFisier(Masina masina)
         {
+            if (masina == null) return;
             using (StreamWriter streamWriterFisierText = new StreamWriter(NumeFisier, true))
             {
                 streamWriterFisierText.WriteLine(masina.DetaliiMasinaFisier());
@@ -44,33 +38,23 @@ namespace Administrator
                 {
                     Masini[Nr_Masini++] = new Masina(linieFisier);
                 }
-            };
-        }
-        public void WriteLastId()
-        {
-            using (StreamWriter streamWriterFisierId = new StreamWriter(FisierId)) 
-            {
-                streamWriterFisierId.WriteLine(Masina.Next_Id.ToString());
             }
         }
-        public static void ReadLastId()
+
+        private static void GetLastId()
         {
-            int lastId;
-            string linieFisier;
-            string fisierId = ConfigurationManager.AppSettings["LastId"];
-            using (StreamReader streamReaderFisierId = new StreamReader(fisierId))
+
+            string FisierMasini = ConfigurationManager.AppSettings["FisierMasini"];
+            using (StreamReader streamReader = new StreamReader(FisierMasini))
             {
-                if ((linieFisier = streamReaderFisierId.ReadLine()) != null) 
+                string linieFisier;
+                string[] lista;
+                while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    lastId = Int32.Parse(linieFisier.Split()[0]);
-                    Masina.Next_Id = lastId;
-                }
-                else
-                {
-                    Masina.Next_Id = 0;
+                    lista = linieFisier.Split(';');
+                    Masina.Next_Id = Int32.Parse(lista[0]) + 1;
                 }
             }
-            using (StreamWriter streamWriterFisierId = new StreamWriter(fisierId, false)) { } //Golire fisier dupa citire.
         }
     }
 }

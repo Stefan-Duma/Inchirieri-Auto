@@ -20,6 +20,7 @@ namespace Administrator
         }
         public void AddClientFisier(Client client)
         {
+            if (client == null) return;
             using (StreamWriter streamWriterFisierText = new StreamWriter(NumeFisier, true))
             {
                 streamWriterFisierText.WriteLine(client.DetaliiClientFisier());
@@ -37,6 +38,35 @@ namespace Administrator
                     Clienti[Nr_Clienti++] = new Client(linieFisier);
                 }
             }
+        }
+        public Client CautareClientFisier(string nume, string prenume)
+        {
+            Client Client_Gasit;
+            string linieFisier = "";
+            using (StreamReader streamReader = new StreamReader(NumeFisier))
+            {
+                while ((linieFisier = streamReader.ReadLine()) != null)
+                {
+                    Client_Gasit = new Client(linieFisier);
+                    if (Client_Gasit != null && Client_Gasit.Nume.ToUpper() == nume.ToUpper() && Client_Gasit.Prenume.ToUpper() == prenume.ToUpper()) return Client_Gasit;
+                }
+            }
+            return null;
+        }
+        public Client CautareClientFisier(string Info)
+        {
+            Client Client_Gasit;
+            string linieFisier = "";
+            using (StreamReader streamReader = new StreamReader(NumeFisier))
+            {
+                while ((linieFisier = streamReader.ReadLine()) != null)
+                {
+                    Client_Gasit = new Client(linieFisier);
+                    if (Client_Gasit != null && Client_Gasit.Email.ToUpper() == Info.ToUpper()) return Client_Gasit;
+                    if (Client_Gasit != null && Client_Gasit.Nr_Telefon == Info) return Client_Gasit;
+                }
+            }
+            return null;
         }
     }
 }
