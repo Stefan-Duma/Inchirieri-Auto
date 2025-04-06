@@ -9,27 +9,20 @@ namespace Administrator
 {
     public class AdministratorMasini_Memorie
     {
-        public const int NR_MAX_MASINI = 50;
-        protected Masina[] Masini;
-        protected int Nr_Masini;
+        protected List<Masina> Masini;
         public AdministratorMasini_Memorie()
         {
-            Masini = new Masina[NR_MAX_MASINI];
-            Nr_Masini = 0;
+            Masini = new List<Masina>();
         }
         public void AddMasina(Masina Mn)
         {
             if (Mn == null) return;
-            if (Nr_Masini >= NR_MAX_MASINI)
-            {
-                return;
-            }
-            Masini[Nr_Masini++] = Mn;
+            Masini.Add(Mn);
         }
 
-        public Masina[] GetMasini()
+        public List<Masina> GetMasini()
         {
-            return (Masina[])Masini.Clone();
+            return Masini;
         }
         public Masina GetMasina(int Id)
         {
@@ -48,10 +41,6 @@ namespace Administrator
                 Info += Mn.DetaliiMasina();
             }
             return Info;
-        }
-        public int GetNrMasini()
-        {
-            return Nr_Masini;
         }
     }
 }

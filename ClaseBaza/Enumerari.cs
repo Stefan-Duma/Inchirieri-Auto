@@ -21,6 +21,7 @@ namespace ClaseBaza
     [Flags]
     public enum Optiuni
     {
+        Nimic = 0,
         AerConditionat = 1,
         Navigatie = 2,
         CutieAutomata = 4,

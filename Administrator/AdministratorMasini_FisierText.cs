@@ -33,15 +33,14 @@ namespace Administrator
             using (StreamReader streamReader = new StreamReader(NumeFisier))
             {
                 string linieFisier;
-                Nr_Masini = 0;
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    Masini[Nr_Masini++] = new Masina(linieFisier);
+                    Masini.Add(new Masina(linieFisier));
                 }
             }
         }
 
-        private static void GetLastId()
+        public static int GetLastId()
         {
 
             string LocatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
@@ -58,6 +57,7 @@ namespace Administrator
                     Masina.Next_Id = Int32.Parse(lista[0]) + 1;
                 }
             }
+            return Masina.Next_Id;
         }
     }
 }

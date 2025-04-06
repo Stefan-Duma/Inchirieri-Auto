@@ -9,39 +9,21 @@ namespace Administrator
 {
     public class AdministratorClienti_Memorie
     {
-        public const int NR_MAX_CLIENTI = 50;
-
-        protected Client[] Clienti;
+        protected List<Client> Clienti;
         protected int Nr_Clienti;
         public AdministratorClienti_Memorie()
         {
-            Clienti = new Client[NR_MAX_CLIENTI];
-            Nr_Clienti = 0;
+            Clienti = new List<Client>();
         }
-        public Client[] GetClients()
+        public List<Client> GetClients()
         {
-            return (Client[])Clienti.Clone();
-        }
-        public int GetNrClienti()
-        {
-            return Nr_Clienti;
+            return Clienti;
         }
 
         public void AddClient(Client ClientNou)
         {
             if (ClientNou == null) return;
-            if (Nr_Clienti >= NR_MAX_CLIENTI) return;
-            Clienti[Nr_Clienti] = ClientNou;
-            Nr_Clienti++;
-        }
-        public void AddClient(Client[] ClientNou)
-        {
-            if (NR_MAX_CLIENTI - Nr_Clienti < ClientNou.Length) return;
-            foreach (Client Cln in Clienti)
-            {
-                Clienti[Nr_Clienti] = Cln;
-                Nr_Clienti++;
-            }
+            Clienti.Add(ClientNou);
         }
         public string InfoClienti()
         {

@@ -31,11 +31,10 @@ namespace Administrator
             using (StreamReader streamReader = new StreamReader(NumeFisier))
             {
                 string linieFisier;
-                Nr_Clienti = 0;
 
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    Clienti[Nr_Clienti++] = new Client(linieFisier);
+                    Clienti.Add(new Client(linieFisier));
                 }
             }
         }

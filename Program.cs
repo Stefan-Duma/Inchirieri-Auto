@@ -48,7 +48,7 @@ namespace InchirieriAuto
                         Console.WriteLine("Alegeti masina dupa Id:");
                         AdminMasini.GetMasiniFisier();
                         Index = int.Parse(Console.ReadLine());
-                        if(Index < 0 || Index > AdminMasini.GetNrMasini())
+                        if(Index < 0 || Index > AdminMasini.GetMasini().Count)
                         {
                             Console.WriteLine("Id Invalid! Clientul nu va fi citit");
                             Console.ReadKey();
