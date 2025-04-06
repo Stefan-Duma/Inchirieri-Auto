@@ -44,8 +44,11 @@ namespace Administrator
         private static void GetLastId()
         {
 
+            string LocatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
             string FisierMasini = ConfigurationManager.AppSettings["FisierMasini"];
-            using (StreamReader streamReader = new StreamReader(FisierMasini))
+            string CaleCompletaFisierMasini = LocatieFisierSolutie + "\\" + FisierMasini;
+
+            using (StreamReader streamReader = new StreamReader(CaleCompletaFisierMasini))
             {
                 string linieFisier;
                 string[] lista;

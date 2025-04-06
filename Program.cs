@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClaseBaza;
 using Administrator;
+using System.IO;
 
 namespace InchirieriAuto
 {
@@ -17,12 +18,17 @@ namespace InchirieriAuto
             int Index;
             Client Client_Nou = null, Client_Gasit = null;
             Masina Masina_Noua = null;
-
+            
+            string LocatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName;
+            
             string FisierClienti = ConfigurationManager.AppSettings["FisierClienti"];
-            string FisiserMasini = ConfigurationManager.AppSettings["FisierMasini"];
-
-            AdministratorClienti_FisierText AdminClienti = new AdministratorClienti_FisierText(FisierClienti);            
-            AdministratorMasini_FisierText AdminMasini = new AdministratorMasini_FisierText(FisiserMasini);
+            string FisierMasini = ConfigurationManager.AppSettings["FisierMasini"];
+            
+            string CaleCompletaFisierClienti = LocatieFisierSolutie + "\\" + FisierClienti;
+            AdministratorClienti_FisierText AdminClienti = new AdministratorClienti_FisierText(CaleCompletaFisierClienti);
+            
+            string CaleCompletaFisierMasini = LocatieFisierSolutie + "\\" + FisierMasini;
+            AdministratorMasini_FisierText AdminMasini = new AdministratorMasini_FisierText(CaleCompletaFisierMasini);
             
             do {
 

@@ -18,6 +18,15 @@ namespace Administrator
             Clienti = new Client[NR_MAX_CLIENTI];
             Nr_Clienti = 0;
         }
+        public Client[] GetClients()
+        {
+            return (Client[])Clienti.Clone();
+        }
+        public int GetNrClienti()
+        {
+            return Nr_Clienti;
+        }
+
         public void AddClient(Client ClientNou)
         {
             if (ClientNou == null) return;

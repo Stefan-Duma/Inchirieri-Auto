@@ -51,7 +51,7 @@ namespace Administrator
         }
         public int GetNrMasini()
         {
-            return Nr_Masini-1;
+            return Nr_Masini;
         }
     }
 }
