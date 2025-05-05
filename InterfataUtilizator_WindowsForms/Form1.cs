@@ -16,14 +16,14 @@ using System.IO;
 namespace InchirieriAuto_WindowsForms
 {
     public partial class Form1 : Form
-    {   
-        private const int LUNGIME_FORMA = 800;
-        private const int LATIME_FORMA = 400;
+    {
+        private const int LUNGIME_FORMA = 620;
+        private const int LATIME_FORMA = 410;
 
         private const int LUNGIME_ELEMENT = 150;
         private const int PAS_X = 20;
         private const int PAS_Y = 20;
-        private const int LEFT_MARGIN = 120;
+        private const int LEFT_MARGIN = 290;
 
         private int LabelIndex = 0;
 
@@ -36,12 +36,12 @@ namespace InchirieriAuto_WindowsForms
 
         private Button btnAdauga;
 
-        private List<Label> lblClient_Nume;
-        private List<Label> lblClient_Prenume;
-        private List<Label> lblClient_Email;
-        private List<Label> lblClient_Telefon;
-        private List<Label> lblClient_Perioada;
-        private List<Label> lblClient_IDVehicul;
+        //private List<Label> lblClient_Nume;
+        //private List<Label> lblClient_Prenume;
+        //private List<Label> lblClient_Email;
+        //private List<Label> lblClient_Telefon;
+        //private List<Label> lblClient_Perioada;
+        //private List<Label> lblClient_IDVehicul;
 
         private AdministratorClienti_FisierText AdminClienti;
         public Form1()
@@ -65,28 +65,28 @@ namespace InchirieriAuto_WindowsForms
             lblAddNume.Width = LUNGIME_ELEMENT;
             lblAddNume.Text = "Nume";
             lblAddNume.TextAlign = ContentAlignment.MiddleCenter;
-            lblAddNume.Left = PAS_X;
+            lblAddNume.Left = PAS_X + LEFT_MARGIN;
             lblAddNume.Top = PAS_Y;
             this.Controls.Add(lblAddNume);
-            
+
             txtNume = new TextBox();
             txtNume.Width = LUNGIME_ELEMENT;
-            txtNume.Left = PAS_X;
-            txtNume.Top = 2*PAS_Y;
+            txtNume.Left = PAS_X + LEFT_MARGIN;
+            txtNume.Top = 2 * PAS_Y;
             this.Controls.Add(txtNume);
-            
+
             //Prenume
             Label lblAddPrenume = new Label();
             lblAddPrenume.Width = LUNGIME_ELEMENT;
             lblAddPrenume.Text = "Prenume";
             lblAddPrenume.TextAlign = ContentAlignment.MiddleCenter;
-            lblAddPrenume.Left = PAS_X;
-            lblAddPrenume.Top = 3*PAS_Y;
+            lblAddPrenume.Left = PAS_X + LEFT_MARGIN;
+            lblAddPrenume.Top = 3 * PAS_Y;
             this.Controls.Add(lblAddPrenume);
 
             txtPrenume = new TextBox();
             txtPrenume.Width = LUNGIME_ELEMENT;
-            txtPrenume.Left = PAS_X;
+            txtPrenume.Left = PAS_X + LEFT_MARGIN;
             txtPrenume.Top = 4 * PAS_Y;
             this.Controls.Add(txtPrenume);
 
@@ -95,13 +95,13 @@ namespace InchirieriAuto_WindowsForms
             lblAddEmail.Width = LUNGIME_ELEMENT;
             lblAddEmail.Text = "Email";
             lblAddEmail.TextAlign = ContentAlignment.MiddleCenter;
-            lblAddEmail.Left = PAS_X;
+            lblAddEmail.Left = PAS_X + LEFT_MARGIN;
             lblAddEmail.Top = 5 * PAS_Y;
             this.Controls.Add(lblAddEmail);
 
             txtEmail = new TextBox();
             txtEmail.Width = LUNGIME_ELEMENT;
-            txtEmail.Left = PAS_X;
+            txtEmail.Left = PAS_X + LEFT_MARGIN;
             txtEmail.Top = 6 * PAS_Y;
             this.Controls.Add(txtEmail);
 
@@ -110,13 +110,13 @@ namespace InchirieriAuto_WindowsForms
             lblAddTelefon.Width = LUNGIME_ELEMENT;
             lblAddTelefon.Text = "Telefon";
             lblAddTelefon.TextAlign = ContentAlignment.MiddleCenter;
-            lblAddTelefon.Left = PAS_X;
+            lblAddTelefon.Left = PAS_X + LEFT_MARGIN;
             lblAddTelefon.Top = 7 * PAS_Y;
             this.Controls.Add(lblAddTelefon);
 
             txtTelefon = new TextBox();
             txtTelefon.Width = LUNGIME_ELEMENT;
-            txtTelefon.Left = PAS_X;
+            txtTelefon.Left = PAS_X + LEFT_MARGIN;
             txtTelefon.Top = 8 * PAS_Y;
             this.Controls.Add(txtTelefon);
 
@@ -125,13 +125,13 @@ namespace InchirieriAuto_WindowsForms
             lblAddPerioada.Width = LUNGIME_ELEMENT;
             lblAddPerioada.Text = "Perioada";
             lblAddPerioada.TextAlign = ContentAlignment.MiddleCenter;
-            lblAddPerioada.Left = PAS_X;
+            lblAddPerioada.Left = PAS_X + LEFT_MARGIN;
             lblAddPerioada.Top = 9 * PAS_Y;
             this.Controls.Add(lblAddPerioada);
 
             txtPerioada = new TextBox();
             txtPerioada.Width = LUNGIME_ELEMENT;
-            txtPerioada.Left = PAS_X;
+            txtPerioada.Left = PAS_X + LEFT_MARGIN;
             txtPerioada.Top = 10 * PAS_Y;
             this.Controls.Add(txtPerioada);
 
@@ -140,13 +140,13 @@ namespace InchirieriAuto_WindowsForms
             lblAddIdVehicul.Width = LUNGIME_ELEMENT;
             lblAddIdVehicul.Text = "Id Vehicul";
             lblAddIdVehicul.TextAlign = ContentAlignment.MiddleCenter;
-            lblAddIdVehicul.Left = PAS_X;
+            lblAddIdVehicul.Left = PAS_X + LEFT_MARGIN;
             lblAddIdVehicul.Top = 11 * PAS_Y;
             this.Controls.Add(lblAddIdVehicul);
 
             txtIdVehicul = new TextBox();
             txtIdVehicul.Width = LUNGIME_ELEMENT;
-            txtIdVehicul.Left = PAS_X;
+            txtIdVehicul.Left = PAS_X + LEFT_MARGIN;
             txtIdVehicul.Top = 12 * PAS_Y;
             this.Controls.Add(txtIdVehicul);
 
@@ -155,13 +155,13 @@ namespace InchirieriAuto_WindowsForms
             btnAdauga = new Button();
             btnAdauga.Text = "Adauga";
             btnAdauga.Width = LUNGIME_ELEMENT;
-            btnAdauga.Left = PAS_X;
+            btnAdauga.Left = PAS_X + LEFT_MARGIN;
             btnAdauga.Top = 14 * PAS_Y;
             btnAdauga.Click += OnClick;
             this.Controls.Add(btnAdauga);
 
             //Labels pentru afisarea datelor salvate
-
+            /*
             Label lblNume = new Label();
             lblNume.Width = LUNGIME_ELEMENT;
             lblNume.Text = "Nume";
@@ -209,22 +209,32 @@ namespace InchirieriAuto_WindowsForms
             lblIdVehicul.Left = LEFT_MARGIN + 5 * LUNGIME_ELEMENT + PAS_X;
             lblIdVehicul.Top = PAS_Y;
             this.Controls.Add(lblIdVehicul);
-
+            */
             this.Load += Form1_Load;
-
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-               AfiseazaClienti();
+            //AfiseazaClienti();
         }
         private void OnClick(object sender, EventArgs e)
         {
+            TextBox[] txtVector = { txtNume, txtPrenume, txtEmail, txtTelefon, txtPerioada, txtIdVehicul };
+            foreach(TextBox txt in txtVector)
+            {
+                if(string.IsNullOrWhiteSpace(txt.Text))
+                {
+                    MessageBox.Show("Toate campurile sunt obligatorii");
+                    return;
+                }
+            }
             char Sep = ';';
             string Linie = $"{txtNume.Text}{Sep}{txtPrenume.Text}{Sep}{txtEmail.Text}{Sep}" +
                            $"{txtTelefon.Text}{Sep}{txtPerioada.Text}{Sep}{txtIdVehicul.Text}{Sep}";
             Client ClientNou = new Client(Linie);
             AdminClienti.AddClientFisier(ClientNou);
 
+            
             txtNume.Text = "";
             txtPrenume.Text = "";
             txtEmail.Text = "";
@@ -232,9 +242,10 @@ namespace InchirieriAuto_WindowsForms
             txtPerioada.Text = "";
             txtIdVehicul.Text = "";
 
-            AfiseazaClient(ClientNou, LabelIndex);
+            //AfiseazaClient(ClientNou, LabelIndex);
             LabelIndex++;
         }
+        /*
         private void AfiseazaClient(Client Cln, int i)
         {
             lblClient_Nume.Add(new Label());
@@ -308,5 +319,6 @@ namespace InchirieriAuto_WindowsForms
             }
             LabelIndex = i;
         }
+    */
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InterfataUtilizator_WindowsForms;
 
 namespace InchirieriAuto_WindowsForms
 {
@@ -16,13 +17,9 @@ namespace InchirieriAuto_WindowsForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Form1 form1 = new Form1();
-            form1.Show();
-            
-            Form2 form2 = new Form2();
-            form2.Show();
+            MainForm mainForm = new MainForm();
 
-            Application.Run();
+            Application.Run(mainForm);
         }
     }
 }

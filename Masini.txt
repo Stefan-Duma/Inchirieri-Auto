@@ -2,3 +2,6 @@
 1;Audi A3;2002;135;8;True;Albastru;Camere360;
 2;Golf 6;2010;210;5;True;Negru;Camere360,JanteAliaj;
 3;Fiat Punto;1998;90;7;True;Gri;Nimic;
+4;Golf 5;2006;120;5;True;Verde;Nimic;
+5;Lada;1984;2000;1;True;Alb;Nimic;
+6;Dacia Logan;2004;120;3;True;Alb;Nimic;

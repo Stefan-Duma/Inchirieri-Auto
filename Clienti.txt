@@ -5,3 +5,7 @@ Georgescu;Maria;maria.georgescu@gmail.com;0766548993;5;2;
 Antonescu;George;george.anton@gmail.com;0754667819;15;0;
 Cucerca;Raluca;raluca.cucerca@gmail.com;0766558973;9;0;
 Juravle;Alexandra;alexandra.juravle@gmail.com;0752089774;3;3;
+John;Doe;j.doe@gmail.com;0746438234;3;2;
+Roy;Albert;;;3;0;
+Regulus;Corneas;Corneas@mail.com;23438 ;4;2;
+John;Albert;j.albert@mail.com;07238423 ;3;2;
