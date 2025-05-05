@@ -30,12 +30,22 @@ namespace InterfataUtilizator_WindowsForms
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            Culoare CuloareMasina = Culoare.Alb;
+            Optiuni OptiuniMasina = Optiuni.Nimic;
             foreach (Control control in this.Controls)
             {
                 if (control is MetroTextBox metroTextBox && string.IsNullOrWhiteSpace(metroTextBox.Text))
                 {
-                    MessageBox.Show("Toate campurile sunt obligatorii!");
+                    MessageBox.Show("Toate campurile sunt obligatorii!", "Invalid");
                     return;
+                }
+                if(control is MetroRadioButton metroRadio && metroRadio.Checked)
+                {
+                    CuloareMasina = (Culoare)Enum.Parse(typeof(Culoare), metroRadio.Text);
+                }
+                if(control is MetroCheckBox metroCheck && metroCheck.Checked)
+                {
+                    OptiuniMasina |= (Optiuni)Enum.Parse(typeof(Optiuni), metroCheck.Text);
                 }
             }
             char Sep = ';';
@@ -43,7 +53,7 @@ namespace InterfataUtilizator_WindowsForms
             Console.WriteLine(LastId);
 
             string Linie = $"{LastId}{Sep}{txtModel.Text}{Sep}{txtAnAparitie.Text}{Sep}{txtTaxa.Text}{Sep}" +
-                           $"{txtStoc.Text}{Sep}{(int.Parse(txtStoc.Text) > 0 ? "true" : "false")}{Sep}{Culoare.Alb}{Sep}{Optiuni.Nimic}";
+                           $"{txtStoc.Text}{Sep}{(int.Parse(txtStoc.Text) > 0 ? "true" : "false")}{Sep}{CuloareMasina}{Sep}{OptiuniMasina}";
 
             Masina MasinaNoua = new Masina(Linie);
             AdminMasini.AddMasinaFisier(MasinaNoua);
@@ -51,6 +61,17 @@ namespace InterfataUtilizator_WindowsForms
             txtAnAparitie.Text = "";
             txtTaxa.Text = "";
             txtStoc.Text = "";
+            foreach (Control control in this.Controls)
+            {
+                if (control is MetroCheckBox metroCheck && metroCheck.Checked)
+                {
+                    metroCheck.Checked = false;
+                }
+                if (control is MetroRadioButton metroRadio && metroRadio.Checked)
+                {
+                    metroRadio.Checked = false;
+                }
+            }
 
         }
 
@@ -58,7 +79,7 @@ namespace InterfataUtilizator_WindowsForms
         {
             if(string.IsNullOrWhiteSpace(txtModel.Text) && string.IsNullOrWhiteSpace(txtAnAparitie.Text))
             {
-                MessageBox.Show("Pentru cautare modelul si anul aparitiei sunt obligatorii!");
+                MessageBox.Show("Pentru cautare modelul si anul aparitiei sunt obligatorii!", "Eroare de cautare");
                 return;
             }
             AdminMasini.GetMasiniFisier();
@@ -67,15 +88,17 @@ namespace InterfataUtilizator_WindowsForms
             {
                 if (Mn.Model == txtModel.Text && Mn.An_Aparitie == int.Parse(txtAnAparitie.Text))
                 {
-                    MessageBox.Show($"Masina a fost gasita:\n" +
-                                    $"ID: {Mn.Id}\n" +
+                    MessageBox.Show($"ID: {Mn.Id}\n" +
                                     $"Model: {Mn.Model}\n" +
                                     $"An aparitie: {Mn.An_Aparitie}\n" +
                                     $"Taxa: {Mn.Taxa}\n" +
-                                    $"Stoc: {Mn.Stoc}\n", "Masina gasita");
+                                    $"Stoc: {Mn.Stoc}\n" +
+                                    $"Culoare: {Mn.Culoare_Masina}\n" +
+                                    $"Optiuni: {Mn.Optiuni_Masina}", "Masina gasita");
                     return;
                 }
             }
+            MessageBox.Show("Masina nu a fost gasita", "Eroare de cautare");
         }
     }
 }

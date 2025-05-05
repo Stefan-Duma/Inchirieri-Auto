@@ -49,7 +49,7 @@ namespace InterfataUtilizator_WindowsForms
             {
                 if (control is MetroTextBox metroTextBox && string.IsNullOrWhiteSpace(metroTextBox.Text))
                 {
-                    MessageBox.Show("Toate campurile sunt obligatorii!");
+                    MessageBox.Show("Toate campurile sunt obligatorii!", "Invalid");
                     return;
                 }
             }

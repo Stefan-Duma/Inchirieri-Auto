@@ -5,3 +5,6 @@
 4;Golf 5;2006;120;5;True;Verde;Nimic;
 5;Lada;1984;2000;1;True;Alb;Nimic;
 6;Dacia Logan;2004;120;3;True;Alb;Nimic;
+7;Tesla;2019;1200;3;True;Albastru;Navigatie, SenzoriParcare, Camere360, JanteAliaj, PilotAutomat;
+8;Mercedes;2008;120;2;True;Galben;Navigatie, CutieAutomata, Camere360, PilotAutomat;
+9;Volvo XC90;2025;2500;1;True;Gri;AerConditionat, Navigatie, ScauneIncalzite, SenzoriParcare, Camere360, PilotAutomat;
