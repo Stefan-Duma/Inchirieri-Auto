@@ -20,6 +20,7 @@ namespace InterfataUtilizator_WindowsForms
     {
         private PictureBox backgroundPictureBox;
         private AdministratorClienti_FisierText AdminClienti;
+        private Client ClientGasit;
         public FormClienti()
         {
             InitializeComponent();
@@ -77,15 +78,16 @@ namespace InterfataUtilizator_WindowsForms
             AdminClienti.GetClientiFisier();
             foreach(Client cln in AdminClienti.GetClients())
             {
-                if (cln.Nume == txtNume.Text && cln.Prenume == txtPrenume.Text && cln.Email == txtEmail.Text)
+                if (cln.Nume.ToUpper() == txtNume.Text.ToUpper() && cln.Prenume.ToUpper() == txtPrenume.Text.ToUpper() && cln.Email.ToUpper() == txtEmail.Text.ToUpper())
                 {
-                    MessageBox.Show($"Clientul a fost gasit:\n" +
+                    ClientGasit = cln;
+                    richTextBoxClientInfo.Text = $"Clientul a fost gasit:\n" +
                                     $"Nume: {cln.Nume}\n" +
                                     $"Prenume: {cln.Prenume}\n" +
                                     $"Email: {cln.Email}\n" +
                                     $"Telefon: {cln.Nr_Telefon}\n" +
                                     $"Perioada: {cln.Perioada} zile\n" +
-                                    $"ID Vehicul: {cln.Id_Vehicul}", "Client gasit");
+                                    $"ID Vehicul: {cln.Id_Vehicul}";
                     txtNume.Text = "";
                     txtPrenume.Text = "";
                     txtEmail.Text = "";
@@ -93,6 +95,39 @@ namespace InterfataUtilizator_WindowsForms
                 }
             }
             MessageBox.Show("Clientul nu a fost gasit!", "Eroare de cautare");
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            if (ClientGasit == null)
+            {
+                MessageBox.Show("Clientul nu a fost selectat. Folositi optiunea de cautare inainte de modificare.",
+                                                    "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            List<Client> clienti = AdminClienti.GetClients();
+            for (int i = 0; i < clienti.Count; i++)
+            {
+                if (clienti[i] == ClientGasit)
+                {
+                    if (!string.IsNullOrWhiteSpace(txtNume.Text)) ClientGasit.Nume = txtNume.Text;
+                    if (!string.IsNullOrWhiteSpace(txtPrenume.Text)) ClientGasit.Prenume = txtPrenume.Text;
+                    if (!string.IsNullOrWhiteSpace(txtEmail.Text)) ClientGasit.Email = txtEmail.Text;
+                    if (!string.IsNullOrWhiteSpace(txtTelefon.Text)) ClientGasit.Nr_Telefon = txtTelefon.Text;
+                    if (!string.IsNullOrWhiteSpace(txtPerioada.Text)) ClientGasit.Perioada = int.Parse(txtPerioada.Text);
+                    if (!string.IsNullOrWhiteSpace(txtId.Text)) ClientGasit.Id_Vehicul = int.Parse(txtId.Text);
+                    break;
+                }
+            }
+            AdminClienti.AddClientiFisier();
+            MessageBox.Show("Clientul a fost modificat", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            richTextBoxClientInfo.Text = "";
+            txtNume.Text = "";
+            txtPrenume.Text = "";
+            txtEmail.Text = "";
+            txtTelefon.Text = "";
+            txtPerioada.Text = "";
+            txtId.Text = "";
         }
     }
 }

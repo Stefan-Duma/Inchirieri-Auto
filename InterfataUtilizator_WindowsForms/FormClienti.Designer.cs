@@ -42,6 +42,8 @@
             this.txtId = new MetroFramework.Controls.MetroTextBox();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.richTextBoxClientInfo = new System.Windows.Forms.RichTextBox();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
             // metroLabel1
@@ -143,7 +145,7 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(415, 101);
+            this.metroButton1.Location = new System.Drawing.Point(263, 101);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(175, 50);
             this.metroButton1.TabIndex = 12;
@@ -152,18 +154,38 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(415, 176);
+            this.metroButton2.Location = new System.Drawing.Point(263, 176);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(175, 50);
             this.metroButton2.TabIndex = 13;
             this.metroButton2.Text = "Cautare client";
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
+            // richTextBoxClientInfo
+            // 
+            this.richTextBoxClientInfo.Location = new System.Drawing.Point(541, 101);
+            this.richTextBoxClientInfo.Name = "richTextBoxClientInfo";
+            this.richTextBoxClientInfo.ReadOnly = true;
+            this.richTextBoxClientInfo.Size = new System.Drawing.Size(175, 213);
+            this.richTextBoxClientInfo.TabIndex = 14;
+            this.richTextBoxClientInfo.Text = "";
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.Location = new System.Drawing.Point(263, 244);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(175, 50);
+            this.metroButton3.TabIndex = 15;
+            this.metroButton3.Text = "Modificare client";
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
+            // 
             // FormClienti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroButton3);
+            this.Controls.Add(this.richTextBoxClientInfo);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.txtId);
@@ -203,5 +225,7 @@
         private MetroFramework.Controls.MetroTextBox txtId;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton2;
+        private System.Windows.Forms.RichTextBox richTextBoxClientInfo;
+        private MetroFramework.Controls.MetroButton metroButton3;
     }
 }

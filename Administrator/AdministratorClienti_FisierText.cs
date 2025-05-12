@@ -26,8 +26,19 @@ namespace Administrator
                 streamWriterFisierText.WriteLine(client.DetaliiClientFisier());
             }
         }
+        public void AddClientiFisier()
+        {
+            using (StreamWriter streamWriterFisierText = new StreamWriter(NumeFisier, false))
+            {    
+                foreach (Client cln in Clienti)
+                {
+                    streamWriterFisierText.WriteLine(cln.DetaliiClientFisier());
+                }
+            }
+        }
         public void GetClientiFisier()
-        { 
+        {
+            Clienti.Clear();
             using (StreamReader streamReader = new StreamReader(NumeFisier))
             {
                 string linieFisier;
