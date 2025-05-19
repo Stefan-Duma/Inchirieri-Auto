@@ -1,10 +1,10 @@
-0;Bmw E39;2000;120;10;True;Rosu;AerConditionat,Navigatie;
-1;Audi A3;2002;135;8;True;Albastru;Camere360;
-2;Golf 6;2010;210;5;True;Negru;Camere360,JanteAliaj;
-3;Fiat Punto;1998;90;7;True;Gri;Nimic;
+0;Bmw E39;2000;120;10;True;Rosu;AerConditionat, Navigatie;
+1;Audi A4;2000;150;5;True;Verde;AerConditionat, Navigatie, Camere360, JanteAliaj;
+2;Golf 6;2010;210;5;True;Negru;Camere360, JanteAliaj;
 4;Golf 5;2006;120;5;True;Verde;Nimic;
 5;Lada;1984;2000;1;True;Alb;Nimic;
 6;Dacia Logan;2004;120;3;True;Alb;Nimic;
 7;Tesla;2019;1200;3;True;Albastru;Navigatie, SenzoriParcare, Camere360, JanteAliaj, PilotAutomat;
 8;Mercedes;2008;120;2;True;Galben;Navigatie, CutieAutomata, Camere360, PilotAutomat;
 9;Volvo XC90;2025;2500;1;True;Gri;AerConditionat, Navigatie, ScauneIncalzite, SenzoriParcare, Camere360, PilotAutomat;
+10;fsda;13;132;2;True;Gri;ScauneIncalzite;

@@ -65,6 +65,7 @@ namespace InterfataUtilizator_WindowsForms
             this.metroGestiune.Size = new System.Drawing.Size(196, 54);
             this.metroGestiune.TabIndex = 2;
             this.metroGestiune.Text = "Gestiune inchirieri";
+            this.metroGestiune.Click += new System.EventHandler(this.metroGestiune_Click);
             // 
             // metroExit
             // 

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.btnAdauga = new MetroFramework.Controls.MetroButton();
+            this.btnCautare = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -56,25 +56,30 @@
             this.radioGri = new MetroFramework.Controls.MetroRadioButton();
             this.radioGalben = new MetroFramework.Controls.MetroRadioButton();
             this.radioPortocaliu = new MetroFramework.Controls.MetroRadioButton();
+            this.btnModificare = new MetroFramework.Controls.MetroButton();
+            this.btnStergere = new MetroFramework.Controls.MetroButton();
+            this.listMasini = new System.Windows.Forms.ListView();
+            this.btnClear = new MetroFramework.Controls.MetroButton();
+            this.btnReturn = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
-            // metroButton1
+            // btnAdauga
             // 
-            this.metroButton1.Location = new System.Drawing.Point(437, 104);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(175, 50);
-            this.metroButton1.TabIndex = 0;
-            this.metroButton1.Text = "Adaugare Masina";
-            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            this.btnAdauga.Location = new System.Drawing.Point(381, 91);
+            this.btnAdauga.Name = "btnAdauga";
+            this.btnAdauga.Size = new System.Drawing.Size(175, 50);
+            this.btnAdauga.TabIndex = 0;
+            this.btnAdauga.Text = "Adaugare Masina";
+            this.btnAdauga.Click += new System.EventHandler(this.btnAdauga_Click);
             // 
-            // metroButton2
+            // btnCautare
             // 
-            this.metroButton2.Location = new System.Drawing.Point(437, 202);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(175, 50);
-            this.metroButton2.TabIndex = 1;
-            this.metroButton2.Text = "Cautare Masina";
-            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            this.btnCautare.Location = new System.Drawing.Point(381, 157);
+            this.btnCautare.Name = "btnCautare";
+            this.btnCautare.Size = new System.Drawing.Size(175, 50);
+            this.btnCautare.TabIndex = 1;
+            this.btnCautare.Text = "Cautare Masina";
+            this.btnCautare.Click += new System.EventHandler(this.btnCautare_Click);
             // 
             // metroLabel1
             // 
@@ -326,11 +331,61 @@
             this.radioPortocaliu.Text = "Portocaliu";
             this.radioPortocaliu.UseVisualStyleBackColor = true;
             // 
+            // btnModificare
+            // 
+            this.btnModificare.Location = new System.Drawing.Point(566, 91);
+            this.btnModificare.Name = "btnModificare";
+            this.btnModificare.Size = new System.Drawing.Size(175, 50);
+            this.btnModificare.TabIndex = 29;
+            this.btnModificare.Text = "Modificare masina";
+            this.btnModificare.Click += new System.EventHandler(this.btnModificare_Click);
+            // 
+            // btnStergere
+            // 
+            this.btnStergere.Location = new System.Drawing.Point(566, 156);
+            this.btnStergere.Name = "btnStergere";
+            this.btnStergere.Size = new System.Drawing.Size(175, 50);
+            this.btnStergere.TabIndex = 30;
+            this.btnStergere.Text = "Stergere masina";
+            this.btnStergere.Click += new System.EventHandler(this.btnStergere_Click);
+            // 
+            // listMasini
+            // 
+            this.listMasini.HideSelection = false;
+            this.listMasini.Location = new System.Drawing.Point(27, 294);
+            this.listMasini.Name = "listMasini";
+            this.listMasini.Size = new System.Drawing.Size(711, 123);
+            this.listMasini.TabIndex = 31;
+            this.listMasini.UseCompatibleStateImageBehavior = false;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(381, 225);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(175, 50);
+            this.btnClear.TabIndex = 32;
+            this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(566, 225);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(175, 50);
+            this.btnReturn.TabIndex = 33;
+            this.btnReturn.Text = "Back to menu";
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // FormMasini
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.listMasini);
+            this.Controls.Add(this.btnStergere);
+            this.Controls.Add(this.btnModificare);
             this.Controls.Add(this.radioPortocaliu);
             this.Controls.Add(this.radioGalben);
             this.Controls.Add(this.radioGri);
@@ -357,8 +412,8 @@
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
-            this.Controls.Add(this.metroButton2);
-            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.btnCautare);
+            this.Controls.Add(this.btnAdauga);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormMasini";
             this.Padding = new System.Windows.Forms.Padding(0, 60, 0, 0);
@@ -370,8 +425,8 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroButton metroButton1;
-        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton btnAdauga;
+        private MetroFramework.Controls.MetroButton btnCautare;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel3;
@@ -398,5 +453,10 @@
         private MetroFramework.Controls.MetroRadioButton radioGri;
         private MetroFramework.Controls.MetroRadioButton radioGalben;
         private MetroFramework.Controls.MetroRadioButton radioPortocaliu;
+        private MetroFramework.Controls.MetroButton btnModificare;
+        private MetroFramework.Controls.MetroButton btnStergere;
+        private System.Windows.Forms.ListView listMasini;
+        private MetroFramework.Controls.MetroButton btnClear;
+        private MetroFramework.Controls.MetroButton btnReturn;
     }
 }

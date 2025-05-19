@@ -30,6 +30,7 @@ namespace Administrator
 
         public void GetMasiniFisier()
         {
+            Masini.Clear();
             using (StreamReader streamReader = new StreamReader(NumeFisier))
             {
                 string linieFisier;
@@ -39,7 +40,17 @@ namespace Administrator
                 }
             }
         }
-
+        public void AddMasiniFisier()
+        {
+            using (StreamWriter streamWriterFisierText = new StreamWriter(NumeFisier, false))
+            {
+                foreach (Masina masina in Masini)
+                {
+                    if (masina == null) return;
+                    streamWriterFisierText.WriteLine(masina.DetaliiMasinaFisier());
+                }
+            }
+        }
         public static int GetLastId()
         {
 

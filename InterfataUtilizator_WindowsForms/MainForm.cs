@@ -15,23 +15,9 @@ namespace InterfataUtilizator_WindowsForms
 {
     public partial class MainForm: MetroForm
     {
-        private PictureBox backgroundPictureBox;
         public MainForm()
         {
             InitializeComponent();
-            //Image bgImage = Image.FromFile("C:\\Users\\Stefan\\source\\repos\\InchirieriAuto\\BackgroundImages\\MainForm.jpg");
-            
-            //backgroundPictureBox = new PictureBox();
-            //backgroundPictureBox.Dock = DockStyle.Fill;
-            //backgroundPictureBox.Image = bgImage;
-            //backgroundPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            
-            //this.Controls.Add(backgroundPictureBox);
-            
-            //backgroundPictureBox.SendToBack();
-            //this.DoubleBuffered = true;
-
-
         }
 
         private void metroClienti_Click(object sender, EventArgs e)
@@ -48,6 +34,12 @@ namespace InterfataUtilizator_WindowsForms
         private void metroExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void metroGestiune_Click(object sender, EventArgs e)
+        {
+            FormGestiune gestiune = new FormGestiune();
+            gestiune.Show();
         }
     }
 }

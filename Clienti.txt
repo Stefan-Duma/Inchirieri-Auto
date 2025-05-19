@@ -1,6 +1,6 @@
-Popescu;Alexandru;alex.popescu@gmail.com;0752499876;4;0;
-Alexandrescu;Razvan;alex.rzv@gmail.com;0766534672;10;1;
-Cucerca;Florian;florian.cucerca@gmail.com;0788598732;2;1;
-Georgescu;Maria;maria.georgescu@gmail.com;0766548993;5;2;
-Antonescu;George;george.anton@gmail.com;0754667819;15;0;
-Cucerca;Raluca;raluca1@gmail.ro;0766558973;5;3;
+Popescu;Raffaele;alex.popescu@student.usv.ro;0752499876;
+Alexandrescu;Razvan;alex.rzv@gmail.com;0766534672;
+Cucerca;Florian;florian.cucerca@gmail.com;0788598732;
+Antonescu;George;george.anton@gmail.com;0754667819;
+Cucerca;Raluca;raluca1@gmail.ro;0766558973;
+sfda;safd;sdfa;sfda;
